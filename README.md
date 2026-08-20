@@ -92,7 +92,7 @@ Everything runs on **Databricks Free Edition** — Unity Catalog governs every t
 Three model families were benchmarked head-to-head under identical conditions: stratified 5-fold cross-validation, class-imbalance handling native to each algorithm, and — the differentiator — **the decision threshold tuned against the €500/€10 cost function, not against accuracy or AUC.**
 
 <p align="center">
-  <img src="docs/images/cv_cost_comparison.png" width="620" alt="Cross-validation cost comparison across three models">
+  <img src="images/cv_cost_comparison.png" width="620" alt="Cross-validation cost comparison across three models">
 </p>
 
 | Model | Threshold | CV Cost / 1,000 trucks |
@@ -114,7 +114,7 @@ Before trusting that ranking, the gap between Random Forest and XGBoost was test
 A CI that crosses zero means the win isn't statistically conclusive at the 95% level, even though it looks strong on paper. That skepticism turned out to be justified:
 
 <p align="center">
-  <img src="docs/images/cv_vs_test_reversal.png" width="620" alt="CV vs held-out test cost, showing the rank reversal">
+  <img src="images/cv_vs_test_reversal.png" width="620" alt="CV vs held-out test cost, showing the rank reversal">
 </p>
 
 On the untouched **held-out test set**, the ranking flipped — Random Forest generalized better than XGBoost, exactly the scenario the bootstrap CI had flagged as plausible. XGBoost's optimal threshold (0.00105) sat at the extreme edge of a heavily compressed probability distribution — great on training folds, less stable on fresh data.
@@ -124,7 +124,7 @@ On the untouched **held-out test set**, the ranking flipped — Random Forest ge
 ## Final Results
 
 <p align="center">
-  <img src="docs/images/final_results.png" width="680" alt="Final cost comparison against naive baselines">
+  <img src="images/final_results.png" width="680" alt="Final cost comparison against naive baselines">
 </p>
 
 **Random Forest is the deployed model.** On the 16,000-row held-out test set:
